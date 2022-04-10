@@ -9,6 +9,7 @@ import suyeon.hello_spring.repository.MemoryMemberRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// 1. 순수 자바를 이용한 테스트
 class MemberServiceTest {
     MemberService memberService;
     MemoryMemberRepository memberRepository;
