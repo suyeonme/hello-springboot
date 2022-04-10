@@ -1,5 +1,6 @@
 package suyeon.hello_spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -12,22 +13,17 @@ import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
-    private final DataSource dataSource;
-    private final EntityManager em;
+    private final MemberRepository memberRepository;
 
-    public SpringConfig(DataSource dataSource, EntityManager em) {
-        this.dataSource = dataSource;
-        this.em = em;
+    @Autowired
+    // constructor가 1개일 때는 AutoWired 생략 가능
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
-    }
-
-    @Bean
-    public MemberRepository memberRepository() {
-        return new JPAMemberRepository(em);
+        return new MemberService(memberRepository);
     }
 }
 
