@@ -10,11 +10,10 @@ import suyeon.hello_spring.repository.MemberRepository;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-// 2. 스프링을 이용한 테스트
+// 2. 스프링을 이용한 통합 테스트
 
 @SpringBootTest
-//@Transactional
-
+@Transactional
 
 class MemberServiceIntegrationTest {
     @Autowired  MemberService memberService;

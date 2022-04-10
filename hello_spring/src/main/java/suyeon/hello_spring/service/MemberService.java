@@ -1,9 +1,8 @@
 package suyeon.hello_spring.service;
 
-// 비즈니스 로직
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import suyeon.hello_spring.domain.Member;
 import suyeon.hello_spring.repository.MemberRepository;
 import suyeon.hello_spring.repository.MemoryMemberRepository;
@@ -11,12 +10,13 @@ import suyeon.hello_spring.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-// Autowired로 연결
+// 비즈니스 로직
+
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    @Autowired
+//    @Autowired
     public MemberService(MemberRepository memberRepository) {
         // DB객체(repository)가 여러개의 인스턴트가 생성되지 않도록
         // Dipendency Injection

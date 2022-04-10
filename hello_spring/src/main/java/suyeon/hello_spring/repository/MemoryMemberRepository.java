@@ -8,7 +8,7 @@ import java.util.*;
 // DB에 데이터 저장
 // 아직 DB가 선정되지 않았을 경우 가정 (interface로 구현체 정의) -> 추후에 교체
 
-@Repository
+//@Repository
 // AutoWired로 연결
 public class MemoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new HashMap<>();
